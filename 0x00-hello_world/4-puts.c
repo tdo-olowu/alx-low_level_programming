@@ -1,10 +1,11 @@
 #include <stdio.h>
 
 /**
- *  Prints a constant char stream to stdout
+ * main - prints a constant char stream to stdout
+ * Return: from whence you came!!!
  */
 int main(void)
 {
-	puts("Programming is like building a multilingual puzzle");
+	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
 }
