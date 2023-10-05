@@ -1,0 +1,2 @@
+#!/bin/bash
+gcc -S ${CFILE} -o ${CFILE%%.c} ; cat ${CFILE%%.c} > ${CFILE%%.c}.s ; rm ${CFILE%%.c} ;
