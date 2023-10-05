@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-/* Betty, leave me alone coding isn't easy */
+/**
+ * main - Betty, leave me alone coding isn't easy.
+ * Return: Betty, write your own code
+ */
 int main(void)
 {
 	char fmt[] = "%s%d%s\n";
