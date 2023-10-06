@@ -9,17 +9,16 @@
 int main(void)
 {
 	int n = ZERO;
+	int stop;
+	int sep;
 
 	for (n = ZERO ; n <= NINE ; ++n)
 	{
-		if (n == NINE)
-			putchar(n);
-		else
-		{
-			putchar(n);
-			putchar(',');
-			putchar(' ');
-		}
+		stop = ((n < NINE) ? ' ' : '\n');
+		sep = ((n < NINE) ? ',' : ' ');
+		putchar(n);
+		putchar(sep);
+		putchar(stop);
 	}
 
 	return (0);
