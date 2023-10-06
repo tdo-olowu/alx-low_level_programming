@@ -8,7 +8,8 @@
  */
 int main(void)
 {
-	int n;
+	int n = ZERO;
+	int diff;
 
 	for (n = ZERO ; n <= NINE ; ++n)
 	{
