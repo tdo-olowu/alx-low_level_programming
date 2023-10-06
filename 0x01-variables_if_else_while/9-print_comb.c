@@ -9,7 +9,6 @@
 int main(void)
 {
 	int n = ZERO;
-	int diff;
 
 	for (n = ZERO ; n <= NINE ; ++n)
 	{
