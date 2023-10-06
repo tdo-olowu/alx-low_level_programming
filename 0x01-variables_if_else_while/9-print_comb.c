@@ -14,7 +14,7 @@ int main(void)
 
 	for (n = ZERO ; n <= NINE ; ++n)
 	{
-		stop = ((n < NINE) ? ' ' : '\n');
+		stop = ((n < NINE) ? ' ' : '\0');
 		sep = ((n < NINE) ? ',' : '\0');
 		putchar(n);
 		putchar(sep);
