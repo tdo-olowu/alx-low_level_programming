@@ -10,7 +10,6 @@ int main(void)
 {
 	int n = ZERO;
 	int stop;
-	int sep;
 
 	for (n = ZERO ; n <= NINE ; ++n)
 	{
