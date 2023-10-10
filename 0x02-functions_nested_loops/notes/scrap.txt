@@ -1,0 +1,13 @@
+Requirements:
+no global variables
+at most five functions per file
+no standard library? Huh? No printf, puts, etc.
+Seems _putchar is allowed. What is that?
+Oh ok. It seems that they have their own putchar.
+If I'm understanding clearly, you should write your own 'main.h' header file with the prototypes of all your functions, and prototype of _putchar.
+You will then #include this main in each other file or something.
+Hmm...I think you should write just the functions. They allegedly have their own main.c which will test your function.
+A bit confusing but OK.
+
+
+

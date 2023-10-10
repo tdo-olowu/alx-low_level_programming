@@ -1,0 +1,31 @@
+WHAT SHOULD A HEADER CONTAIN?
+-	A header guard
+-	Function declarations
+-	Macro definitions
+-	Useful general-purpose constants
+-	System-wide global variables
+
+WHAT'S THE SYNTAX FOR INCLUDING HEADERS
+For system files use
+	#include <file>
+For home-made header files use
+	#include "file"
+The latter will search the current working directory for the file. When compiling, check what the -i flag does. It's for directory control read the manual.
+
+
+HEADER GUARDS
+Why should we care? Because it prevents the preprocessor from copy-pasting the header multiple times.
+If that happens, we will suffer a compile error.
+Use a conditional inclusion...
+
+	#ifndef HEADER_FILE
+	#define HEADER_FILE
+
+	/* insert file contents here */
+
+	#endif
+
+It *almost* looks like BASH syntax (although BASH is if...fi)
+
+WHAT IS A MAKEFILE?
+I keep seeing this but haven't had the time to learn about it.
