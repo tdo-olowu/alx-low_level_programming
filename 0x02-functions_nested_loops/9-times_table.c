@@ -17,7 +17,8 @@ void times_table(void)
 			sep = ((c < 9) ? ',' : '\n');
 			if (prod < 10)
 			{
-				_putchar(' ');
+				if (c > 0)
+					_putchar(' ');
 				_putchar('0' + prod);
 				_putchar(sep);
 				if (c < 9)
