@@ -17,7 +17,13 @@ void times_table(void)
 			sep = ((j < 9) ? ',' : '\0');
 			pad = ((j < 9) ? ' ' : '\n');
 			val = i * j;
-			if (val	< 10)
+			if (val == 0)
+			{
+				_putchar(ZERO + val);
+				_putchar(sep);
+				_putchar(pad);
+			}
+			else if (val < 10)
 			{
 				_putchar(' ');
 				_putchar(ZERO + val);
