@@ -19,14 +19,15 @@ void times_table(void)
 			val = i * j;
 			if (val	< 10)
 			{
+				_putchar(' ');
 				_putchar(ZERO + val);
 				_putchar(sep);
 				_putchar(pad);
 			}
 			else if (val >= 10)
 			{
-				_putchar(ZERO + i);
-				_putchar(ZERO + j);
+				_putchar(ZERO + (val / 10));
+				_putchar(ZERO + (val % 10));
 				_putchar(sep);
 				_putchar(pad);
 			}

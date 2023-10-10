@@ -8,23 +8,25 @@
 void print_to_98(int n)
 {
 	int i;
+	char fmt[] = "%d%c%c" ;
+	char sep, pad;
 
 	if (n > 98)
 	{
 		for (i = n ; i >= 98 ; --i)
 		{
-			char fmt[] = ((i > 98) ? "%d, " : "%d\n");
-
-			printf(fmt, i);
+			sep = ((i > 98) ? ',' : '\0');
+			pad = ((i > 98) ? ' ' : '\n');
+			printf(fmt, i, sep, pad);
 		}
 	}
 	else if (n <= 98)
 	{
 		for (i = n ; i <= 98 ; ++i)
 		{
-			char fmt[] = ((i < 98) ? "%d, " : "%d\n");
-
-			printf(fmt, i);
+			sep = ((i < 98) ? ',' : '\0');
+			pad = ((i < 98) ? ' ' : '\n');
+			printf(fmt, i, sep, pad);
 		}
 	}
 }
