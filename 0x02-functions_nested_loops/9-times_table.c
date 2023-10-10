@@ -3,7 +3,6 @@
 
 /**
  * times_table - prints the 9 times table?
- * 
  * i indicates table rows, j for columns
  * Return: no return value
  */
@@ -20,16 +19,16 @@ void times_table(void)
 			val = i * j;
 			if (val	< 10)
 			{
-				_printf(ZERO + val);
-				_printf(sep);
-				_printf(pad);
+				_putchar(ZERO + val);
+				_putchar(sep);
+				_putchar(pad);
 			}
 			else if (val >= 10)
 			{
-				_printf(ZERO + i);
-				_printf(ZERO + j);
-				_printf(sep);
-				_printf(pad);
+				_putchar(ZERO + i);
+				_putchar(ZERO + j);
+				_putchar(sep);
+				_putchar(pad);
 			}
 		}
 	}

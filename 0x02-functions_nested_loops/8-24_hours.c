@@ -1,6 +1,5 @@
 #include "main.h"
 #define ZERO 48
-#define NINE 57
 
 /**
  * jack_bauer - prints the entire range of a digital clock
@@ -8,14 +7,6 @@
  */
 void jack_bauer(void)
 {
-	enum numbers
-	{
-		ZERO = 48,
-		ONE, TWO, THREE,
-		FOUR, FIVE, SIX,
-		SEVEN, EIGHT, NINE
-	}
-
 	int H, h, M, m;
 
 	for (H = ZERO ; H <= (ZERO + 2) ; ++H)
@@ -27,7 +18,7 @@ void jack_bauer(void)
 				for (m = ZERO ; m <= (ZERO + 9) ; ++m)
 				{
 					if ((H == 2) && (h > 3))
-						continue
+						continue;
 					else
 					{
 						_putchar(H);
