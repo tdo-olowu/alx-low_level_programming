@@ -11,7 +11,7 @@ void times_table(void)
 
 	for (r = 0 ; r < 10 ; ++r)
 	{
-		for (c = 0 ; c < 10 : ++c)
+		for (c = 0 ; c < 10 ; ++c)
 		{
 			prod = r * c;
 			sep = ((c < 9) ? ',' : '\n');
