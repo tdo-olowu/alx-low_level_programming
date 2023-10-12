@@ -10,7 +10,7 @@ void more_numbers(void)
 
 	for (i = 0 ; i < 10 ; ++i)
 	{
-		for (c = 1 ; c < 14 ; ++c)
+		for (c = 1 ; c <= 14 ; ++c)
 		{
 			tens = (c / 10);
 			units = (c % 10);
