@@ -1,0 +1,18 @@
+LEAP YEARS
+I admit this problem is irritating to think about.
+So, a leap year is either a year that is divisible by 4 but not 100 (e.g. 1988),
+or it is divisible by both 100 and 400 e.g. 1600, 2000, 2400.
+But why?
+It's hardly explained, it just seems like an arbitrary rule.
+
+Given a date, how do we calculate the number of remaining days in this year?
+
+-	Convert the date to the nth day of the year. n begins at 1.
+		Be sensitive to leap years.
+
+-	Leap year or not, let's call L the total number of days in the given year.
+	How many days are found in the set n < k <= L? There are exactly (L - n) days.
+
+-	If it's a leap year, L == 366. Otherwise, L == 365.
+
+
