@@ -20,4 +20,6 @@ int main(void)
 		else
 			printf("%d%c", n, sep);
 	}
+
+	return (0);
 }
