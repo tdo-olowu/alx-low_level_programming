@@ -13,7 +13,7 @@ void print_array(int *a, int n)
 	for (i = 0 ; a[i] != '\0' ; ++i)
 	{
 	}
-	if (i >= n)
+	if ((i >= n) && (n > 0))
 	{
 		for (i = 0 ; i < n - 1 ; ++i)
 		{
@@ -23,5 +23,6 @@ void print_array(int *a, int n)
 	}
 	else
 	{
+		putchar('\n');
 	}
 }

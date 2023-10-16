@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * rev_str - merely reverses a string
+ * rev_string - merely reverses a string
  * @s: the string in question
  * Return: no return value, only does a process
  */
-void rev_str(char *s)
+void rev_string(char *s)
 {
 	int i, j, temp;
 
