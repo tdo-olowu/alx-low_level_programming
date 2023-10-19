@@ -7,5 +7,12 @@
  */
 char *cap_string(char *str)
 {
-	return (str);
+	int prev_ch, ch, i;
+
+	prev_ch = NULL;
+	ch = NULL;
+
+	for (i = 0 ; str[i] != '\0' ; ++i)
+	{
+		prev_ch
 }
