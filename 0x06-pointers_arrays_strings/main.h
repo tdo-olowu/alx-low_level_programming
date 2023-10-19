@@ -11,6 +11,8 @@ void reverse_array(int, int);
 char *string_toupper(char*);
 char *cap_string(char*);
 char *leet(char*);
+int _issep(char);
+int _isalpha(char);
 
 
 #endif /* MAIN_H */
