@@ -12,8 +12,8 @@ char *cap_string(char *str)
 {
 	int prev_ch, ch, i;
 
-	prev_ch = NULL;
-	ch = NULL;
+	prev_ch = '\0';
+	ch = '\0';
 
 	for (i = 0 ; str[i] != '\0' ; ++i)
 	{
