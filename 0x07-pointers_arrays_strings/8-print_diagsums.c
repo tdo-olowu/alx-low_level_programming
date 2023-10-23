@@ -18,9 +18,9 @@ void print_diagsums(int *a, int size)
 		for (j = 0 ; j < size ; ++j)
 		{
 			if (i == j)
-				pri_sum += a[i][j];
+				pri_sum += a[i];
 			else if (i + j == size - 1)
-				sec_sum += a[i][j];
+				sec_sum += a[i];
 			else
 				continue;
 		}
