@@ -6,7 +6,7 @@
  * @accept: the character set we'll use to search
  * Return: longest streak of matches from the left end of s
  */
-unsigned int _strsp(char *s, char *accept)
+unsigned int _strspn(char *s, char *accept)
 {
 	int i, j, n;
 

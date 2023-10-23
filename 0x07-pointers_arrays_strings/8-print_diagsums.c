@@ -25,4 +25,5 @@ void print_diagsums(int *a, int size)
 				continue;
 		}
 	}
+	printf("%d, %d\n", pri_sum, sec_sum);
 }
