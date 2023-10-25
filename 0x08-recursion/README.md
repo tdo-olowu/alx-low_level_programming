@@ -1,1 +1,2 @@
-Basic exercises in recursion in C
+Basic exercises in recursion in C.
+No loops of any sort allowed...
