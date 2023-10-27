@@ -8,12 +8,6 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int h, n, h_len, n_len;
-
-	for (h = 0 ; haystack[h] != '\0' ; ++h)
-		;
-	for (n = 0 ; needle[n] != '\0' ; ++n)
-		;
-
-	ppp
+	(void)needle;
+	return (haystack);
 }

@@ -5,4 +5,8 @@
  * @par: hiya
  * Return: to owner
  */
-void floyd()
+int _atoi(char *s)
+{
+	(void)s;
+	return (0);
+}
