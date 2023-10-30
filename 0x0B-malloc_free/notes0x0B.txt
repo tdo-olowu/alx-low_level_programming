@@ -1,0 +1,40 @@
+For number 3 alloc_grid, there has to be enough memory for as many integers as will be stored in the grid.
+Thus, malloc((width * height) * sizeof(int)).
+How do we actually populate the grid?
+Suppose the grid's name is grid.
+*grid evaluates to a pointer, specifically a pointer to some row.
+*grid++ would be what's used in a loop, although I have my reservations about that syntax.
+*(*grid) would evaluate to some particular integer in the grid.
+*(*grid++)++ - does this make any sense?
+
+I think the double-index notation is better.
+grid[i][j]
+A different approach might be to keep asking for mallocs.
+grid = malloc(height * sizeof(int*))
+for (i just up to height)
+	*grid++ = malloc(width * sizeof(int))
+	if unsuccessful, break and possibly free.
+I prefer this approach, although it would have its problems in practice. Better not depend on any such grid to be full!
+Also, we don't get a contiguous block of memory but rather our memory will be scattered all over the place.
+For a circuit board that's millions of kilometers wide, such disorganisation can significantly increase the access time for various memory locations, hence it's better to have all of them lined up contiguously.
+
+
+
+HOW CAN WE FREE A 2D GRID?
+Assuming a 2D grid is the same as an array of pointers, we have to be careful!
+We can't just free the rows. We need to free every cell in each row.
+So, the code would look something like uh...
+for (i just up to height)
+	for (j just up to width)
+		free(gridp
+NOPE!
+I just went through the notes. 'free' expects a pointer as its argument, hence all we need to do is to free each row.
+I'm curious how free knows how large each row is.
+Anyway, the proper code should look something like...
+for (i just up to height)
+	free(*grid++)
+or
+for (i just up to height)
+	free(&grid[i][0]);
+
+
