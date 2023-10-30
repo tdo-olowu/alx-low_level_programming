@@ -8,20 +8,20 @@
 char *_strdup(char *str)
 {
 	int count;
+	char *cpy;
+
+	if (str == NULL)
+		return (NULL);
 
 	for (count = 0 ; str[count] != '\0' ; ++count)
 		;
-	if (count > 0)
+	cpy = malloc(count * sizeof(char));
+	if (cpy != NULL)
 	{
-		char *cpy;
-
-		cpy = malloc(count * sizeof(char));
-		if (cpy != NULL)
+		for ( ; count >= 0 ; --count)
 		{
-			for ( ; count >= 0 ; --count)
-				cpy[count] = str[count];
+			cpy[count] = str[count];
 		}
-		return (cpy);
 	}
-	return (NULL);
+	return (cpy);
 }
