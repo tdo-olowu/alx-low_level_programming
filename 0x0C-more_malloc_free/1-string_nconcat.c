@@ -19,7 +19,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (x2 = 0 ; (s2 != NULL) && (s2[x2] != '\0') ; ++x2)
 		;
 
-	cat = malloc((x1 + x2) * sizeof(char) + 1);
+	cat = malloc(((x1 + x2) * sizeof(char)) + 1);
 	if (cat == NULL)
 	{
 		return (NULL);
@@ -28,6 +28,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		cat[k] = s1[k];
 	for (k = 0 ; (k < x2) && (k <= n) ; ++k)
 		cat[k + x1] = s2[k];
+
 	cat[k + x1] = '\0';
 
 	return (cat);

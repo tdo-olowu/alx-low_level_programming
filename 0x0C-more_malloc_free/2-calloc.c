@@ -9,9 +9,9 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int i;
-	char *ask;
+	void *ask;
 
-	if (size == 0)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
 
 	ask = malloc(nmemb * size);
