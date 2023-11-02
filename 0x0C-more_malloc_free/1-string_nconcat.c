@@ -11,25 +11,25 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int x1, x2, k;
+	unsigned int c1, c2, k;
 	char *cat;
 
-	for (x1 = 0 ; (s1 != NULL) && (s1[x1] != '\0') ; ++x1)
+	for (c1 = 0 ; (s1 != NULL) && (s1[c1] != '\0') ; ++c1)
 		;
-	for (x2 = 0 ; (s2 != NULL) && (s2[x2] != '\0') ; ++x2)
+	for (c2 = 0 ; (s2 != NULL) && (s2[c2] != '\0') ; ++c2)
 		;
 
-	cat = malloc(((x1 + x2) * sizeof(char)) + 1);
+	cat = malloc(((c1 + c2) * sizeof(char)) + 1);
 	if (cat == NULL)
-	{
 		return (NULL);
-	}
-	for (k = 0 ; k < x1 ; ++k)
-		cat[k] = s1[k];
-	for (k = 0 ; (k < x2) && (k <= n) ; ++k)
-		cat[k + x1] = s2[k];
 
-	cat[k + x1] = '\0';
+	for (k = 0 ; k < c1 ; ++k)
+		cat[k] = s1[k];
+
+	for (k = 0 ; (k < n) && (k < c2) ; ++k)
+		cat[k + c1] = s2[k];
+
+	cat[k + c1] = '\0';
 
 	return (cat);
 }
