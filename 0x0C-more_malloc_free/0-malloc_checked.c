@@ -10,7 +10,8 @@ void *malloc_checked(unsigned int b)
 	int *ask;
 
 	ask = malloc(b);
-	if (ask != NULL)
+	if (ask == NULL)
+		exit(98);
+	else
 		return (ask);
-	exit(98);
 }
