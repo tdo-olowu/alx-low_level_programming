@@ -19,7 +19,8 @@ void print_diagsums(int *a, int size)
 		{
 			if (i == j)
 			{
-				pri_sum += &a[i][j];
+				//pri_sum += (*a)[i][j];
+				printf("%d\n", *a);
 			}
 			else if (i + j == size - 1)
 				sec_sum += &a[i][j];

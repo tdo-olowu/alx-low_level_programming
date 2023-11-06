@@ -1,0 +1,4 @@
+There's a difference between
+	char *a[3]
+amd
+	char (+a)[3]

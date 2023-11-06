@@ -1,0 +1,15 @@
+
+PRIMALITY TESTING RECURSIVELY
+
+This is tough. Doing this using loops is trivial.
+Here's an idea...
+Let f(n) represent the prime-testing function.
+	-	If n is not prime then return 0
+	-	If n is prime then return 1.
+Let's devote the computer's cognitive effort to making sure if n is not prime.
+
+f(2) returns 1.
+What about f(3)?
+Try f(11).
+OK I think I got an idea. Let's exploit the order of execution of C statements.
+The idea is that we whittle down the argument of f until the argument just so happens to divide

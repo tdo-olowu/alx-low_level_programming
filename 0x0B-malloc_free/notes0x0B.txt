@@ -1,3 +1,12 @@
+Problem number 2 was quite tricky to get in a non-convoluted way.
+At first I was confused by the difference between NULL and '\0'.
+After I figured it out, I couldn't easily think of a way to deal with NULL strings without tedious casework.
+Then I found a way using conditionals, but I didn't put the conditionals in the right order.
+I don't quite get it yet, but (str != NULL) && (str[i] != '\0') is different from (str[i] != '\0') && (str != NULL).
+I think the issue is that for null strings, str[i] will generally return a garbage value which is unlikely to be '\0' in particular (odds are 1/2^8). Perhaps accessing nonexistent elements also creates the array somehow?
+I need to do research on this.
+
+
 For number 3 alloc_grid, there has to be enough memory for as many integers as will be stored in the grid.
 Thus, malloc((width * height) * sizeof(int)).
 How do we actually populate the grid?
