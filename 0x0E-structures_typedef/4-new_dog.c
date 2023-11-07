@@ -36,6 +36,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		for ( ; l_owner >= 0 ; --l_owner)
 			(dog->owner)[l_owner] = owner[l_owner];
 	}
+	if (dog->name == NULL || dog->owner == NULL)
+		return (NULL);
 
 	return (dog);
 }
