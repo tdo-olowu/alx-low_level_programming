@@ -10,7 +10,7 @@
 struct dog
 {
 	char *name;
-	char *age;
+	char age;
 	char *owner;
 };
 
