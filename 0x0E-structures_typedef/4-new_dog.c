@@ -1,4 +1,6 @@
-#include "main.h"
+#include "dog.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * new_dog - creates a new dog struct
@@ -12,6 +14,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog_t dog;
 	int l_name, l_owner;
 
+	dog = malloc(sizeof(dog_t));
 	for (l_name = 0 ; name[l_name] != '\0' ; ++l_name)
 		;
 	for (l_owner = 0 ; owner[l_owner] != '\0' ; ++l_owner)

@@ -1,4 +1,6 @@
-#include "main.h"
+#include "dog.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * free_dog - but you'll have to spend money to care for it.
@@ -8,7 +10,6 @@
 void free_dog(dog_t *d)
 {
 	free(d->name);
-	free(d->age);
 	free(d->owner);
 	free(d);
 }
