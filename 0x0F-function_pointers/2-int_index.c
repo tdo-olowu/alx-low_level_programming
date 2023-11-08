@@ -2,6 +2,7 @@
 
 /**
  * int_index - searches for an integer in an array
+ * @array: the array to search.
  * @size: how large the array is
  * @cmp: tests int for condition.
  * int_index returns the index of the first element...
