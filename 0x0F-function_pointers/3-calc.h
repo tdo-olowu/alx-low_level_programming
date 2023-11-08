@@ -6,6 +6,7 @@
  *
  * @op: The operator
  * @f: The function associated
+ * Description: associates symbols with procedures.
  */
 typedef struct op
 {
