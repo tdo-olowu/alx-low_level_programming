@@ -21,6 +21,8 @@ int main(int argc, char *argv[])
 		puts("Error\n");
 		exit(98);
 	}
+	a = atoi(arg[1]);
+	b = atoi(arg[3]);
 	switch (op)
 	{
 		case ('+'):
@@ -46,6 +48,6 @@ int main(int argc, char *argv[])
 	}
 
 	val = 0;
-
+	printf("%d\n", val);
 	return (0);
 }
