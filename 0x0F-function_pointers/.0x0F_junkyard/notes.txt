@@ -1,0 +1,59 @@
+
+The syntax for pointers to functions looks quite confusing.
+The syntax for an array of functions is even worse!
+
+	void (*func[])(int, int, char);
+
+What does that mean?
+
+	void (*func[])(int, int, char);
+
+Compare...
+
+	void (*func)(int, int, char);
+
+A small change changes the semantics. I'd have expected an array of functions to resemble...
+
+	(void (*func)(int, int, char) *f_array[];
+
+But that's wrong. Anyway, the syntax is what it is. We'll understand it better with time.
+
+
+====================================================
+FUNCTION WHICH RETURNS A POINTER:
+
+	return_type *fname(args) ;
+e.g.
+	int *dice(void);
+	char **latin_square(char**);
+
+
+(POINTER TO) A FUNCTION WITH SPECIFIC RETURN TYPE:
+
+	return_type (*fname)(args) ;
+e.g.
+	int (*compare)(int, int) ;
+
+
+AN ARRAY OF (POINTERS TO) FUNCTIONS WITH SPECIFIC TYPES
+
+	return_type (*fname[no_of_items])(args_of_function) ;
+e.g.
+	void (*arithmetics[6])(char*, char*);
+
+That stores six arithmetic 2-arity functions, each of which operates on string representation of numbers.
+Actually I'm not sure if a number needs to be specified.
+
+
+AN 2D ARRAY OF (POINTERS TO) FUNCTIONS
+
+	void (**fname)(args) ; //?
+
+A LOOKUP TABLE OF FUNCTIONS
+
+
+
+===================================================
+In solving number 1-array_it, I initially incremented the array itself i.e. ++arr
+then operated on the variable *arr.
+Why did I get segmentation faults?
