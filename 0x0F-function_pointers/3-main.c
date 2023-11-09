@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "3-calc.h"
 
 /**
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 	}
 
 	opfn = get_op_func(op);
-	if (opfn == NULL)
+	if ((opfn == NULL) || !(isdigit(argv[1])) || !(isdigit(argv[3])))
 	{
 		puts("Error");
 		exit(99);
