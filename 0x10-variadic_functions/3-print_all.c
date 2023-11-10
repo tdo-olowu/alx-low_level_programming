@@ -1,6 +1,7 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * print_all - print all given args
@@ -9,36 +10,39 @@
  */
 void print_all(const char * const format, ...)
 {
-	va_list args;
-	char *fmt = format;
+	va_list ap;
+	char *sep, *str;
+	int i, j;
+	float f;
+	char ch;
 
-	while (*fmt)
+	va_start(ap, format);
+	j = 0;
+	while (format[j] != '\0')
 	{
-		if (*fmt == c)
-		++fmt;
-	}
-	
-	if (n > 0)
-	{
-		va_start(args, n);
-		for (i = 0 ; i < n - 1 ; ++i)
-		{
-			/* strcpy(look, va_arg(args, char*)); */
-			look = va_arg(args, char*);
-			if (look == NULL)
-				printf("(nil)");
-			else
-				printf("%s", look);
-			if (separator != NULL)
-				printf("%s", separator);
+		sep = ", ";
+		switch (format[j]) {
+			case 'c':
+				ch = va_arg(ap, int);
+				printf("%c%s", ch, sep);
+				break;
+			case 'i':
+				i = va_arg(ap, int);
+				printf("%d%s", i, sep);
+				break;
+			case 'f':
+				f = va_arg(ap, int);
+				printf("%f%s", f, sep);
+				break;
+			case 's':
+				str = va_arg(ap, char*);
+				if (str == NULL)
+					printf("(nil)");
+				else
+					printf("%s%s", str, sep);
+				break;
 		}
-		/* strcpy(look, va_arg(args, char*)); */
-		look = va_arg(args, char*);
-		if (look == NULL)
-			printf("(nil)");
-		else
-			printf("%s", look);
-		putchar('\n');
-		va_end(args);
+		++i;
 	}
+	va_end(ap);
 }
