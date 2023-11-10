@@ -1,27 +1,23 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
-#include <string.h>
 
 /**
- * print_strings - print first n strings given
- * @separator: padding for strings
- * @n: the number of strings to print
+ * print_all - print all given args
+ * @format: the format of the arguments i.e. types
  * Return: no return.
  */
-void print_strings(const char *separator, const unsigned int n, ...)
+void print_all(const char * const format, ...)
 {
-	unsigned int i;
-	char *look;
 	va_list args;
-	/*
-	const char* str = firstStr;
-    while ( str != END_OF_LIST ) // terminate if end of argument list
-    {
-        printf( "%s\n", str );
-        str = va_arg( argptr, const char* );
-    }
-	*/
+	char *fmt = format;
+
+	while (*fmt)
+	{
+		if (*fmt == c)
+		++fmt;
+	}
+	
 	if (n > 0)
 	{
 		va_start(args, n);
