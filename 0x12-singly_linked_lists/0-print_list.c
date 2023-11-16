@@ -7,8 +7,8 @@
  */
 size_t print_list(const list_t *h)
 {
-	const list_t nodeptr = h;
-	size_t count = 0;
+	const list_t *nodeptr = h;
+	int count = 0;
 	char *strptr = NULL;
 
 	if (nodeptr == NULL)
@@ -24,7 +24,6 @@ size_t print_list(const list_t *h)
 		++count;
 		nodeptr = nodeptr->next;
 	}
-	printf("-> %u elements\n", count);
 
-	return (count);
+	return ((size_t)count);
 }

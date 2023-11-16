@@ -7,15 +7,14 @@
  */
 size_t list_len(const list_t *h)
 {
-	const list_t node = h;
-	size_t count = 0;
+	const list_t *node = h;
+	int count = 0;
 
 	while (node != NULL)
 	{
 		++count;
 		node = node->next;
 	}
-	printf("%u elements\n", count);
 
-	return (count);
+	return ((size_t)count);
 }
