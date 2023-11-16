@@ -11,9 +11,6 @@ size_t print_list(const list_t *h)
 	int count = 0;
 	char *strptr = NULL;
 
-	if (nodeptr == NULL)
-		printf("[0] (nil)\n");
-
 	while (nodeptr != NULL)
 	{
 		strptr = nodeptr->str;
