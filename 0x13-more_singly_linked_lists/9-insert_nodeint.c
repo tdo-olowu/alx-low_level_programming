@@ -1,23 +1,50 @@
 #include "lists.h"
 
 /**
- * insert_nodeint_at_index - inserts a node at pos
- * @head: pointer to address of head
- * @idx: position to insert node
- * @n: value contained by node
- * Return: address of new node, or NULL
+ * insert_nodeint_at_index - insert a node at specified index.
+ * @head: pointer to head
+ * @idx: the index to check.
+ * @n: the value the node should store
+ * Return: index or NULL
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	int ind = 0;
-	listint_t *new_node;
-	listint_t *current_node = *head;
+	unsigned int i = 0;
+	listint_t *cr_node, *pv_node, *new_node;
 
 	new_node = malloc(sizeof(listint_t));
 	if (new_node == NULL)
 		return (NULL);
 	new_node->n = n;
 
-	while ((current_node !+ NULL) && (ind < idx - 1))
-		current_node = current_node->next;
-	if ((current_node == NULL) && (ind == idx - 1))
+	if (idx == 0)
+	{
+		new_node->next = *head;
+		*head = new_node;
+		return (new_node);
+	}
+
+	cr_node = *head;
+	pv_node = cr_node;
+	while ((cr_node != NULL) && (i <= idx))
+	{
+		pv_node = cr_node;
+		if (i == idx)
+		{
+			pv_node->next = new_node;
+			new_node->next = cr_node;
+			return (new_node);
+		}
+		cr_node = cr_node->next;
+		++i;
+	}
+	if (i == idx)
+	{
+		pv_node->next = new_node;
+		new_node->next = cr_node;
+		return (new_node);
+	}
+
+	free(new_node);
+	return (NULL);
+}
