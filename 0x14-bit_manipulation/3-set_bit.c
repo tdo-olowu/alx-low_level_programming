@@ -11,6 +11,8 @@ int set_bit(unsigned long int *n, unsigned int index)
 	unsigned long int toggle_on;
 	unsigned int i;
 
+	if (n == NULL)
+		return (-1);
 	if ((*n >> index) > 0)
 	{
 		for (toggle_on = 1, i = 0 ; i < index ; ++i)
