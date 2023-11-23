@@ -8,20 +8,21 @@
  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int i, len, mask, *temp;
+	unsigned long int toggle_off;
+	unsigned int i;
 
-	temp = n;
-	mask = 1;
-	for (len = 0; *temp > 0 ; ++len)
-	{
-		*temp >>= 1;
-		i = ((i == index) ? 0 : 1);
-		mask = (mask << 1) + i;
-	}
-	mask >>= 1;
-	if (len <= index)
+	if (index >= 8 * sizeof(unsigned long int))
 		return (-1);
 
-	*temp = (*n & mask);
+	if (n == NULL)
+		return (-1);
+
+	for (toggle_off = 1, i = 0 ; i < index ; ++i)
+	{
+		toggle_off <<= 1;
+	}
+	toggle_off = ~toggle_off;
+	*n = *n & toggle_off;
+
 	return (1);
 }

@@ -8,18 +8,15 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int diff, zero_count;
+	unsigned long int inv_diff, ones_count;
 
-	if ((m == 0) && (n == 1))
-		return (1);
-	else if ((m == 1) && (n == 0))
-		return (1);
+	inv_diff = ~(m ^ n);
 
-	diff = m ^ n;
-	for (zero_count = 0 ; diff > 0 ; diff >>=1)
-	{
-		zero_count += 1 - (diff & 1);
-	}
+	if (inv_diff == 0)
+		return (0);
 
-	return (zero_count);
+	for (ones_count = 0 ; inv_diff > 0 ; inv_diff >>= 1)
+		ones_count += 1 - (inv_diff & 1);
+
+	return (ones_count);
 }
