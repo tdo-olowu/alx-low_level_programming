@@ -8,27 +8,11 @@
  */
 void print_binary(unsigned long int n)
 {
-	int len;
-	unsigned long int temp, mask;
-
-	if (n == 0)
-		_putchar('0');
+	if ((n == 0) || (n == 1))
+		_putchar('0' + (n & 1));
 	else
 	{
-		mask = 1;
-		temp = n;
-		for (len = 0; temp > 0 ; ++len)
-		{
-			temp >>= 1;
-			mask <<= 1;
-		}
-		mask >>= 1;
-		for (temp = n ; mask > 0 ; mask >>= 1)
-		{
-			if ((temp & mask) != 0)
-				_putchar('1');
-			else
-				_putchar('0');
-		}
+		print_binary(n >> 1);
+		_putchar('0' + (n & 1));
 	}
 }
