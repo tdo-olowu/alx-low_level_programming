@@ -13,7 +13,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	inv_diff = ~(m ^ n);
 
 	if (inv_diff == 0)
-		return (0);
+		return (1);
 
 	for (ones_count = 0 ; inv_diff > 0 ; inv_diff >>= 1)
 		ones_count += 1 - (inv_diff & 1);
