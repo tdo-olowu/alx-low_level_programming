@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio.h>
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m);
 int clear_bit(unsigned long int *n, unsigned int index);
