@@ -11,14 +11,20 @@ int set_bit(unsigned long int *n, unsigned int index)
 	unsigned long int toggle_on;
 	unsigned int i;
 
-	if (index >= 8 * sizeof(unsigned long int))
-		return (-1);
-
 	if (n == NULL)
 		return (-1);
+	if ((*n >> index) > 0)
+	{
+		for (toggle_on = 1, i = 0 ; i < index ; ++i)
+			toggle_on <<= 1;
+		*n = *n | toggle_on;
+		return (1);
+	}
+	if ((*n == 0) && (index == 0))
+	{
+		*n = *n | 1;
+		return (1);
+	}
 
-	for (toggle_on = 1, i = 0 ; i < index ; ++i)
-		toggle_on <<= 1;
-	*n = *n | toggle_on;
-	return (1);
+	return (-1);
 }
