@@ -1,6 +1,6 @@
 #include "main.h"
 
-#define OPEN_FLAGS O_CREAT | O_WRONLY | O_TRUNC
+#define OPEN_FLAGS O_WRONLY | O_CREAT | O_TRUNC
 #define MODE_FLAGS S_IRUSR | S_IWUSR
 
 /**
@@ -13,6 +13,7 @@ int create_file(const char *filename, char *text_content)
 {
 	int file_d;
 	ssize_t bytes_written, size;
+	char *buffer;
 
 	if (filename == NULL)
 		return (-1);
@@ -26,14 +27,17 @@ int create_file(const char *filename, char *text_content)
 		return (1);
 	}
 
-	size = strlen(text_content);
-	bytes_written = write(file_d, text_content, size);
-	if ((bytes_written < 0) || (bytes_written < size))
+	size = sizeof(text_content);
+	buffer = malloc(size);
+	if (buffer == NULL)
+		return (-1);
+	bytes_written = write(file_d, buffer, size);
+	if ((bytes_written < 0) || (bytes_written < size + 1))
 	{
 		close(file_d);
+		free(buffer);
 		return (-1);
 	}
 
-	close(file_d);
 	return (1);
 }
