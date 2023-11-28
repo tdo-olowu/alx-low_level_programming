@@ -9,12 +9,13 @@
  * main - overwrites one file with another.
  * @argc: number of arguments
  * @argv: pointer to list of arguments.
+ * Return: exit codes.
  */
 int main(argc, **argv)
 {
-	char *erruse = "Usage: cp file_from file_to\n";
 	int file_to, file_from;
 	char buffer[1024];
+	ssize_t bytes_read, bytes_written;
 
 	if (argc - 1 != 2)
 	{
@@ -25,16 +26,26 @@ int main(argc, **argv)
 	file_from = open(argv[2], OFROM_FLAGS);
 	if (file_from < 0)
 	{
-		dprintf(FERR
-		write(FILENO_STDERR, argv[2], sizeof(argv[2]));
+		dprintf(FERR, "Error: Can't read from file %s\n", argv[2]);
 		exit(98);
 	}
 	file_to = open(argv[1], OTO_FLAGS, OTO_PERMS);
 	if (file_to < 0)
 	{
-		write(FILENO_STDERR, argv[1], sizeof(argv[1]));
+		dprintf(FERR, "Error: Can't write to %s\n", argv[1]);
 		exit(99);
 	}
-	d
 
+	while ((bytes_read = read(file_from, buffer, sizeof(buffer))) > 0)
+	{
+		if (write(file_to, buffer, bytes_read) < 0)
+		{
+			dprintf(FERR, "Error: Can't write to %s\n", argv[1]);
+			close(file_to);
+			close(file_from);
+			exit(99);
+		}
+	}
+	close(file_to);
+	close(file_from);
 }

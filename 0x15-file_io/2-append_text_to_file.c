@@ -5,7 +5,7 @@
 /**
  * append_text_to_file - appends text to file
  * @filename: the name of the file
- * @text_context: what to append.
+ * @text_content: what to append.
  * Return: -1 for failure, 1 for success.
  */
 int append_text_to_file(const char *filename, char *text_content)
