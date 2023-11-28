@@ -1,6 +1,5 @@
 #include "main.h"
 
-#define OPEN_FLAGS (O_WRONLY | O_APPEND)
 
 /**
  * append_text_to_file - appends text to file
@@ -11,11 +10,11 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int file_d;
-	ssize_t size, bytes_written;
+	ssize_t bytes_asked, bytes_written;
 
 	if (filename == NULL)
 		return (-1);
-	file_d = open(filename, OPEN_FLAGS);
+	file_d = open(filename, O_WRONLY | O_APPEND);
 	if (file_d < 0)
 		return (-1);
 
@@ -24,9 +23,9 @@ int append_text_to_file(const char *filename, char *text_content)
 		close(file_d);
 		return (1);
 	}
-	size = sizeof(text_content);
-	bytes_written = write(file_d, text_content, size);
-	if ((bytes_written < 0) || (bytes_written != size))
+	bytes_asked = strlen(text_content);
+	bytes_written = write(file_d, text_content, bytes_asked);
+	if ((bytes_written < 0) || (bytes_written != bytes_asked))
 	{
 		close(file_d);
 		return (-1);
