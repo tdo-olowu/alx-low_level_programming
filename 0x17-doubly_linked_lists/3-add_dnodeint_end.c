@@ -3,6 +3,7 @@
 /**
  * add_dnodeint_end - add node to end of dll
  * @head: address of head of list.
+ * @n: numbuh to store
  * Return: address of new end.
  */
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
