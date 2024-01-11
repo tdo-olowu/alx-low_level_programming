@@ -3,7 +3,7 @@
 /**
  * dlistint_len - prints items in a doubly-linked list
  *
- * @dlistint_t: head of dlist...or is it?
+ * @h: head of dlist...or is it?
  * Return: number of nodes in the list
  */
 size_t dlistint_len(const dlistint_t *h)
@@ -13,7 +13,7 @@ size_t dlistint_len(const dlistint_t *h)
 	const dlistint_t *node_left, *node_right;
 
 	if (h == NULL)
-		return 0;
+		return (0);
 
 	node_left = h;
 	if (node_left->next != NULL)
