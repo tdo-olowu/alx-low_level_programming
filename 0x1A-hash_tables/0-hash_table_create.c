@@ -8,5 +8,25 @@
  */
 hash_table_t *hash_table_create(unsigned long int size)
 {
-	return (NULL);
+	hash_table_t *newt;
+	hash_node_t **arr;
+
+	/* ask for memory */
+	newt = malloc(sizeof(hash_table_t));
+	if (newt == NULL)
+		return (NULL);
+
+	/* if that worked, initialise and ask for more memry */
+	newt->size = size;
+	arr = malloc(size * sizeof(hash_node_t *));
+	if (arr == NULL)
+	{
+		/* always release memry you asked for */
+		free(newt);
+		return (NULL);
+	}
+	/* if that worked, initialise as needed */
+	newt->array = arr;
+
+	return (newt);
 }
