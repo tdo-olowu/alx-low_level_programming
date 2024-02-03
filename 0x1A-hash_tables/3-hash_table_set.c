@@ -13,26 +13,23 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int key_ind;
-	char *temp_str;
 	hash_node_t *head_node, *node;
 
-	if (ht == NULL)
-		return (FAILURE);
-	if ((key == NULL) || (key[0] == '\0'))
+	if ((ht == NULL) || (key == NULL) || (key[0] == '\0'))
 		return (FAILURE);
 	key_ind = key_index((const unsigned char *)key, ht->size);
-	if ((ht->array == NULL) || ((ht->array)[0] == NULL))
+	if (ht->array == NULL)
 		return (FAILURE);
-	head_node = (ht->array)[key_ind];
+
+	head_node = ht->array[key_ind];
 	while (head_node != NULL)
 	{
 		if (strcmp(key, head_node->key) == 0)
 		{
-			temp_str = strdup(value);
-			if (temp_str == NULL)
-				return (FAILURE);
 			free(head_node->value);
-			head_node->value = temp_str;
+			head_node->value = strdup(value);
+			if (head_node->value == NULL)
+				return (FAILURE);
 			return (SUCCESS);
 		}
 		head_node = head_node->next;
@@ -49,7 +46,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(node);
 		return (FAILURE);
 	}
-	node->next = (ht->array)[key_ind];
-	(ht->array)[key_ind] = node;
+	node->next = ht->array[key_ind];
+	ht->array[key_ind] = node;
 	return (SUCCESS);
 }

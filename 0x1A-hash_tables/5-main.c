@@ -6,6 +6,7 @@
 /**
  * main - check the code
  *
+ * itsa really large table indeed.
  * Return: Always EXIT_SUCCESS.
  */
 int main(void)
