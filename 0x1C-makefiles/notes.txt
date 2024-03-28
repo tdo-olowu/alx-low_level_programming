@@ -1,0 +1,62 @@
+===============================
+GENERIC SYNTAX FOR A RULE
+===============================
+
+	target: dependency1 dependency2 ... dependencyN
+		recipe_ln1
+		recipe_ln2
+		...
+		recipe_lnN
+
+The target is intended to be a file, e.g. hello.o, but it could be a 'subroutine' instead.
+To avoid ambiguity i.e. to prevent make from confusing a target's name with a filename, use the .PHONY
+to store the target's name.
+Sounds a bit abstract, but here...
+
+	.PHONY = subroutine1 ... subroutineN
+
+	subroutine1:
+		command1
+		...
+
+	...
+
+	subroutineN:
+		command1
+		...
+
+phony targets are essentially subroutines. Otherwise they are file names - the file to be made.
+dependencies are also files as well. They're what the make utility uses to decide if the target file is up-to-date or out-of-date.
+If a dependency was updated more recently than the target file, then the target file is deemed out of date and the entire recipe is run to build i.e. make the file.
+Else, nothing happens I believe.
+
+
+
+================================================
+SPECIAL SYMBOLS IN MAKE SYNTAX (MACROS)
+================================================
+%
+This expands into whatever. Still don't quite understand it, but here's how
+it might be used:
+	%.o: %.cpp
+		$(CC) $(FLAGS) -c $<
+
+
+$(VAR)
+This represents recursive parameter expansion, similar to BASH.
+Hopefully, the VAR variable has already been defined somewhere in the makefile, e.g
+VAR = cat variables.txt
+or something.
+
+
+$@
+When used in a rule, this expands to the target's name itself.
+For example,
+	targ1: $(OBJS)
+		$(CC) -o $@ $(OBJS)
+will expand to the following...
+	targ1: $(OBJS)
+		$(CC) -o targ1 $(OBJS)
+
+$<
+When used in a rule, this macro stands for a .cpp file that is used to produce a .o file.

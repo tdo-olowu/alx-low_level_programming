@@ -33,5 +33,5 @@ The island doesn’t have “lakes” (water inside that isn’t connected to th
                 if (i < m - 1):
                     if (grid[i+1][j] == 1):
                         borders += 1
-                perimeter += (4 - borders)
+                perimeter += borders
     return perimeter
