@@ -1,7 +1,7 @@
-.PHONY = all clean oclean fclean re
+.PHONY: all clean oclean fclean re
 CC = gcc
 SRC = $(wildcard *.c)
-OBJ = $(wildcard *.o)
+OBJ = $(SRC:.c=.o)
 NAME = school
 RM = rm -f
 
@@ -10,7 +10,7 @@ all : $(NAME)
 
 # build the named target, which depends on the objects
 $(NAME) : $(OBJ)
-	$(CC) -c $< -o $@
+	$(CC) $(OBJ) -o $@
 
 # the tilde represents the vim and emacs temp files.
 clean:

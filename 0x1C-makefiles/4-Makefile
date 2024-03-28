@@ -1,0 +1,25 @@
+.PHONY: all clean oclean fclean re
+CC = gcc
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# default target
+all : $(NAME)
+
+# build the named target, which depends on the objects
+$(NAME) : $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $@
+
+# the tilde represents the vim and emacs temp files.
+clean:
+	$(RM) $(OBJ) $(NAME) *~ .*~
+
+oclean :
+	$(RM) $(OBJ)
+
+fclean : clean oclean
+
+re : fclean all
