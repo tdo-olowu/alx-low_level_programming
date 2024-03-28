@@ -1,14 +1,18 @@
+# declaring all variables
 .PHONY = all
-
 CC = gcc
 SRC = $(wildcard *.c)
-OBJ = $(SRC:.c=.o)
+OBJ = $(wildcard *.o)
 NAME = school
 
-%.o: %.c
-    $(CC) -c $< -o $@
+# all depends on the named target
+all : $(NAME)
 
-$(NAME): $(OBJ)
-    $(CC) $(OBJ) -o $(NAME)
+# name depends on the list of object files
+$(NAME) : $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-all: $(NAME)
+# each object file, if not available, will be constructed
+# based on the following pattern
+%.o : %.c
+	$(CC) -c $< -o $@
