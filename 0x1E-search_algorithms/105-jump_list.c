@@ -9,5 +9,9 @@
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
+	(void)list;
+	(void)size;
+	(void)value;
+
 	return (NULL);
 }
